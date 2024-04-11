@@ -72,6 +72,14 @@ void markCompleted()
 		cout<<"\n";
 		cout<<"\tHave you Done this Task(Y/N): ";
 		cin>>c;
+		if (c=='Y' || c=='y')
+		{
+			cout<<"\n\t"<<tasks[i]<<" COMPLETED\n\n";
+		}
+		else
+		{
+			cout<<"\n\t"<<tasks[i]<<" NOT COMPLETED\n\n";
+		}
 	}
 	cout<<"\n\t____________________________\t\n\n";
 	
