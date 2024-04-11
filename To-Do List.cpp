@@ -4,9 +4,10 @@ using namespace std;
 
 //Global variables
 
-	string tasks[10];
+	string tasks[10], completed[10], unCompleted[10];
 	int total = 0;
 	int numtasks;
+	char c;
 
 //FUNCTION FOR ADD TASKS
 void addTasks()
@@ -26,13 +27,18 @@ void addTasks()
 		   cout<<"\tAdd Task "<<i+1<<":\t";
 		   cin>>tasks[i];
 	    }
-	}
+	}/*
+	else if (total>9)
+	{
+		cout<<"\tTO-DO LIST IS RUNNING OUT OF SPACE\n";
+		cout<<"\tYOU HAVE TO DELETE SOME\n";
+	}*/
 	else
 	{
-	    for (int i=total; i<total+numtasks; i++)
-	    {
-		   cout<<"\tAdd Task "<<i+1<<":\t";
-		   cin>>tasks[i];
+		for (int i=total; i<total+numtasks; i++)
+		{
+		  cout<<"\tAdd Task "<<i+1<<":\t";
+		  cin>>tasks[i];
 	    }	
 		total += numtasks;
 	}
@@ -60,31 +66,47 @@ void showTasks()
 //COMPLETED TASKS FUNCTION
 void markCompleted()
 {
-	char c;
 	cout<<"\n\t_____| MARK AS COMPLETED |_____\t\n\n";
 	if (total==0)
 	{
-		cout<<"\tYou Do\'nt have any tasks currently\n";
+		cout<<"\tYou have not completed any task yet\n";
 	}
 	for (int i=0; i<total; i++)
 	{
-		cout<<"\tTask "<<i+1<<"\t"<<tasks[i];
-		cout<<"\n";
+		cout<<"\tTask "<<i+1<<":\t"<<tasks[i];
 		cout<<"\tHave you Done this Task(Y/N): ";
-		cin>>c;
-		if (c=='Y' || c=='y')
-		{
-			cout<<"\n\t"<<tasks[i]<<" COMPLETED\n\n";
-		}
-		else
-		{
-			cout<<"\n\t"<<tasks[i]<<" NOT COMPLETED\n\n";
-		}
+	    cin>>c;
+	    if (c=='Y' || c=='y')
+	    {
+		   cout<<"\n\t\'"<<tasks[i]<<"\' COMPLETED\n\n";
+	    }
+	    else
+	    {
+		   cout<<"\n\t \'"<<tasks[i]<<"\' NOT COMPLETED\n\n";
+		   cout<<"\n";
+	    }
 	}
 	cout<<"\n\t____________________________\t\n\n";
 	
 	return;
 }
+//FUNTION TO delete TASKS
+void deleteTasks()
+{
+	cout<<"\tDo you want to delete all tasks?(Y/N) ";
+	cin>>c;
+	if (c=='y' || c=='Y')
+	{
+		total = 0;
+		cout<<"\n\tTasks are deleted Successfully...\n";
+	}
+	else
+	{
+		cout<<"\n\tWell, You can delete them any time...\n";
+	}
+	return;
+}
+
 //MAIN FUNCTION
 int main()
 {
@@ -100,6 +122,7 @@ int main()
 		cout<<"\n\t______________________| 1. Add Tasks               |______________________\n";
 		cout<<"\t______________________| 2. Show Tasks              |______________________\n";
 		cout<<"\t______________________| 3. Mark as Completed       |______________________\n";
+		cout<<"\t______________________| 4. Delete Tasks            |______________________\n";
 		cout<<"\t______________________| 0. Exit                    |______________________\n";
 		
 		cout<<"\n\tSelect any of these: ";
@@ -115,6 +138,9 @@ int main()
 			    break;
 			case 3:
 			    markCompleted();
+			    break;
+			case 4:
+			    deleteTasks();
 			    break;
 			case 0:
 			    cout<<"\tExiting Program...\n";
