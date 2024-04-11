@@ -30,29 +30,29 @@ void addTasks()
 	{
 	    for (int i=total; i<total+numtasks; i++)
 	    {
-		   cout<<"\tAdd Task "<<i<<":\t";
+		   cout<<"\tAdd Task "<<i+1<<":\t";
 		   cin>>tasks[i];
 	    }	
+		total += numtasks;
 	}
-	total += numtasks;
+    cout<<"\n\t____________________________\t\n\n";
 	
 	return;
 }
 //FUNCTION FOR SHOW TASKS
 void showTasks()
 {
-	
-	string c = "Completed";
 	cout<<"\n\t_____| CURRENT TASKS |_____\t\n\n";
 	if (total==0)
 	{
 		cout<<"\tYou Do\'nt have any tasks currently\n";
 	}
-	for (int i=0; i<numtasks; i++)
+	for (int i=0; i<total; i++)
 	{
 		cout<<"\tTask "<<i+1<<"\t"<<tasks[i];
 		cout<<"\n";
 	}
+	cout<<"\n\t____________________________\t\n\n";
 	
 	return;
 }
@@ -65,13 +65,14 @@ void markCompleted()
 	{
 		cout<<"\tYou Do\'nt have any completed tasks\n";
 	}
-	for (int i=0; i<numtasks; i++)
+	for (int i=0; i<total; i++)
 	{
 		cout<<"\tTask "<<i+1<<"\t"<<tasks[i];
 		cout<<"\n";
 		cout<<"\tHave you Done this Task(Y/N): ";
 		cin>>c;
 	}
+	cout<<"\n\t____________________________\t\n\n";
 	
 	return;
 }
@@ -82,10 +83,10 @@ int main()
 	cout<<"\n\t_________________________________| TO-DO LIST |_________________________________\n\n";
 	do {
 		
-		cout<<"\n\t| 1. Add Tasks               |\n";
-		cout<<"\t| 2. Show Tasks              |\n";
-		cout<<"\t| 3. Mark as Completed       |\n";
-		cout<<"\t| 0. Exit                    |\n";
+		cout<<"\n\t\t\t\t| 1. Add Tasks               |\n";
+		cout<<"\t\t\t\t| 2. Show Tasks              |\n";
+		cout<<"\t\t\t\t| 3. Mark as Completed       |\n";
+		cout<<"\t\t\t\t| 0. Exit                    |\n";
 		
 		cout<<"\n\tSelect any of these: ";
 		cin>>choice;
