@@ -1,4 +1,5 @@
 #include <iostream>
+#include <windows.h>
 using namespace std;
 
 //Global variables
@@ -63,7 +64,7 @@ void markCompleted()
 	cout<<"\n\t_____| COMPLETED TASKS |_____\t\n\n";
 	if (total==0)
 	{
-		cout<<"\tYou Do\'nt have any completed tasks\n";
+		cout<<"\tYou Do\'nt have any tasks currently\n";
 	}
 	for (int i=0; i<total; i++)
 	{
@@ -79,14 +80,19 @@ void markCompleted()
 //MAIN FUNCTION
 int main()
 {
+	//colorizing text
+	HANDLE console_color; 
+    console_color = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(console_color, 10);
+	
 	int choice;
 	cout<<"\n\t_________________________________| TO-DO LIST |_________________________________\n\n";
 	do {
 		
-		cout<<"\n\t\t\t\t| 1. Add Tasks               |\n";
-		cout<<"\t\t\t\t| 2. Show Tasks              |\n";
-		cout<<"\t\t\t\t| 3. Mark as Completed       |\n";
-		cout<<"\t\t\t\t| 0. Exit                    |\n";
+		cout<<"\n\t______________________| 1. Add Tasks               |______________________\n";
+		cout<<"\t______________________| 2. Show Tasks              |______________________\n";
+		cout<<"\t______________________| 3. Mark as Completed       |______________________\n";
+		cout<<"\t______________________| 0. Exit                    |______________________\n";
 		
 		cout<<"\n\tSelect any of these: ";
 		cin>>choice;
