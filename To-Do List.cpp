@@ -61,7 +61,7 @@ void showTasks()
 void markCompleted()
 {
 	char c;
-	cout<<"\n\t_____| COMPLETED TASKS |_____\t\n\n";
+	cout<<"\n\t_____| MARK AS COMPLETED |_____\t\n\n";
 	if (total==0)
 	{
 		cout<<"\tYou Do\'nt have any tasks currently\n";
@@ -94,7 +94,7 @@ int main()
     SetConsoleTextAttribute(console_color, 10);
 	
 	int choice;
-	cout<<"\n\t_________________________________| TO-DO LIST |_________________________________\n\n";
+	cout<<"\n\n\t_________________________________| TO-DO LIST |_________________________________\n\n";
 	do {
 		
 		cout<<"\n\t______________________| 1. Add Tasks               |______________________\n";
