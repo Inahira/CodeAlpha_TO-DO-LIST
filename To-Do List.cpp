@@ -12,7 +12,7 @@ using namespace std;
 //FUNCTION FOR ADD TASKS
 void addTasks()
 {
-	system("cls");
+	
 	cout<<"\n\t_____| ADD NEW TASKS |_____\n\n";
 	cout<<"\tHow many tasks you want to add? ";
 	cin>>numtasks;
@@ -25,14 +25,9 @@ void addTasks()
 	    for (int i=0; i<numtasks; i++)
 	    {
 		   cout<<"\tAdd Task "<<i+1<<":\t";
-		   cin>>tasks[i];
+		   cin>>tasks[i]; 		
 	    }
-	}/*
-	else if (total>9)
-	{
-		cout<<"\tTO-DO LIST IS RUNNING OUT OF SPACE\n";
-		cout<<"\tYOU HAVE TO DELETE SOME\n";
-	}*/
+	}
 	else
 	{
 		for (int i=total; i<total+numtasks; i++)
@@ -49,7 +44,6 @@ void addTasks()
 //FUNCTION FOR SHOW TASKS
 void showTasks()
 {
-	system("cls");
 	cout<<"\n\t_____| CURRENT TASKS |_____\t\n\n";
 	if (total==0)
 	{
@@ -57,7 +51,7 @@ void showTasks()
 	}
 	for (int i=0; i<total; i++)
 	{
-		cout<<"\t| Task "<<i+1<<":\t"<<tasks[i];
+		cout<<"\tTask "<<i+1<<"\t"<<tasks[i];
 		cout<<"\n";
 	}
 	cout<<"\n\t____________________________\t\n\n";
@@ -67,7 +61,6 @@ void showTasks()
 //COMPLETED TASKS FUNCTION
 void markCompleted()
 {
-	system("cls");
 	cout<<"\n\t_____| MARK AS COMPLETED |_____\t\n\n";
 	if (total==0)
 	{
@@ -75,21 +68,17 @@ void markCompleted()
 	}
 	for (int i=0; i<total; i++)
 	{
-		cout<<"\tTask "<<i+1<<": \t"<<tasks[i];
-		cout<<"\n\tHave you Done this Task(Y/N): ";
+		cout<<"\tTask "<<i+1<<":\t"<<tasks[i];
+		cout<<"\tHave you Done this Task(Y/N): ";
 	    cin>>c;
 	    if (c=='Y' || c=='y')
 	    {
-		   cout<<"\n\t| \'"<<tasks[i]<<"\' COMPLETED |\n\n";
-	    }
-	    else if (c=='N' || c=='n')
-	    {
-		   cout<<"\n\t| \'"<<tasks[i]<<"\' NOT COMPLETED |\n\n";
-		   cout<<"\n";
+		   cout<<"\n\t\'"<<tasks[i]<<"\' COMPLETED\n\n";
 	    }
 	    else
 	    {
-		   cout<<"\n\t| Please enter a valid choice\n";
+		   cout<<"\n\t \'"<<tasks[i]<<"\' NOT COMPLETED\n\n";
+		   cout<<"\n";
 	    }
 	}
 	cout<<"\n\t____________________________\t\n\n";
@@ -99,22 +88,16 @@ void markCompleted()
 //FUNTION TO delete TASKS
 void deleteTasks()
 {
-	system("cls");
-	cout<<"\n\t_____| DELETE |_____\t\n\n";
 	cout<<"\tDo you want to delete all tasks?(Y/N) ";
 	cin>>c;
 	if (c=='y' || c=='Y')
 	{
 		total = 0;
-		cout<<"\n\tDeleted Successfully...\n";
-	}
-	else if (c=='n' || c=='N')
-	{
-		cout<<"\n\tWell, You can delete them any time...\n";
+		cout<<"\n\tTasks are deleted Successfully...\n";
 	}
 	else
 	{
-		cout<<"\n\tPlease enter a valid choice\n";
+		cout<<"\n\tWell, You can delete them any time...\n";
 	}
 	return;
 }
@@ -122,7 +105,6 @@ void deleteTasks()
 //MAIN FUNCTION
 int main()
 {
-	system("cls");
 	//colorizing text
 	HANDLE console_color; 
     console_color = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -156,8 +138,7 @@ int main()
 			    deleteTasks();
 			    break;
 			case 0:
-				system("cls");
-			    cout<<"\n\tExiting Program...\n";
+			    cout<<"\tExiting Program...\n";
 			    break;
 			default:
 				cout<<"\tEnter a valid choice:\n";
